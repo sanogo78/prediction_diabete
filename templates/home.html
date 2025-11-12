@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %} page de d'accueil{% endblock  %}
+    <style type=text/css>
+        div{
+            color:'white';
+        }
+        h2{
+            color:white;
+            font-family:arial, sans-serif;
+            font-size:40px;
+            font-weight:bold;
+            margin-top:200px;
+            transform : 2s;
+        }
+       
+
+         body{
+            background-color:  black;
+            
+            background-image:url("{% static 'static/images/img3.jpg' %}");
+            background-image: url(https://i.ibb.co/PNSXdwC/img4-3.jpg);
+           
+            background-size: cover;
+            background repeat: no-repeat;
+            
+            
+        } 
+        input[type=submit]{
+            background-color:#FFA500;
+            border:2px;
+            color:white;
+            padding:16px 32px;
+            cursor:pointer;
+            margin-top: 15px;
+            border-radius: 10px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div align ='center'>
+    
+        <h2><em>
+            BIENVENUE SUR LE SYSTEME DE PREDICTION DE DIABÈTE</em>
+        </h2>
+        <form action ="predict">
+            <input type="submit" value ="allez prédire ici">
+        </form>
+
+        </div>
+</body>
+</html>

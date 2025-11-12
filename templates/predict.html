@@ -1,0 +1,191 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% block title%} page de prédiction{% endblock %} {% block style %}
+    <style>
+          body{
+              background-color: black;
+          background-image : url("{%static 'static/images/img4.jpg'%}");
+          background-image: url(https://i.ibb.co/jZvBMgg/img4-4.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+
+          }
+          .main{
+              position: absolute;
+              top:100px;
+              left:110px;
+              left:100px;
+              width:580px;
+              background-color: rgba(65, 238, 49, 0.85);
+              border-radius:15px;
+              align-items:center;
+             height:72vh;
+
+          }
+          .main:hover{
+              box-shadow: 50px 0px 20px 0px rgba(0,0,0,0.2);
+
+          }
+          h1{
+              font-family: Times New Roman;
+              margin:20px,0;
+              color: white;
+              font-size:30px;
+              font-weight:bold;
+              animation-delay: 3.5s;
+          }
+          input[type=submit],a{
+              background-color: #FFA500;
+              border: 2px;
+              color:white;
+              padding:10px 16px;
+              cursor:pointer;
+              margin-top: 15px;
+              border-radius: 10px;
+          }
+          
+      input{
+          align-items: center;
+          border-radius: 5px;
+      }
+          p{
+                color:white;
+                font-size:25px;
+                font-family: Arial, sans-serif;
+                font-weight:bold;
+                text-align:center;
+                margin-bottom:20px;
+
+          }
+          .row em{
+              color: red;
+
+          }
+    </style>
+    {% endblock %}
+  </head>
+  <body>
+    <p><em>BIENVENUE SUR LA PAGE DE PREDICTION</em></p>
+    <div align="center" class="main">
+      <h1>ce ci est juste une prediction, consulter un Docteur🤔</h1>
+      <br />
+      <form action="result" align="center" method="POST">
+        {% csrf_token %}
+        <table align="center">
+          <tr>
+            <td align="right">Pregnancies:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n1"
+                step="1"
+                min="0"
+                max="10"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Glucose:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n2"
+                step="1"
+                min="0"
+                max="1000"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Blood Pressure:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n3"
+                step="1"
+                min="0"
+                max="100"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Skin Thickness:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n4"
+                step="1"
+                min="0"
+                max="100"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Insulin:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n5"
+                step="1"
+                min="0"
+                max="1000"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">BMI:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n6"
+                step="0.1"
+                min="0"
+                max="1000.00"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Diabetes Padigree Function:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n7"
+                step="0.1"
+                min="0"
+                max="1.000"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Age:</td>
+            <td align="left">
+              <input
+                type="number"
+                name="n8"
+                step="1"
+                min="0"
+                max="120"
+                required
+              />
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="PREDICT" />
+      </form>
+      <div class="row">
+        <h2><em>{{result2}}</em></h2>
+      </div>
+      <a href="{% url 'home' %}" class="buttom">Accueil</a>
+    </div>
+  </body>
+</html>
